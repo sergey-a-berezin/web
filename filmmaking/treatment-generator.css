@@ -1,0 +1,161 @@
+/* Copyright 2020 Sergey Berezin
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#treatment_generator {
+    position:relative;
+    width: 580px;
+}
+
+#treatment_generator textarea {
+    width: 100%;
+}
+
+#questions {
+   width:300px;
+   float: left;
+   background-color: #eeeeee;
+   border: solid 1px #666666;
+   margin: 10px 1px 10px 0px;
+   padding: 5px 10px 5px 10px;
+}
+
+#treatment {
+   width:200px;
+   float: right;
+   background-color: #eeeeee;
+   border: solid 1px #666666;
+   margin: 10px 0px 10px 1px;
+   padding: 5px 10px 5px 10px;
+}
+
+#json {
+   width:200px;
+   float: right;
+   background-color: #eeeeee;
+   border: solid 1px #666666;
+   margin: 10px 0px 10px 1px;
+   padding: 5px 10px 5px 10px;
+}
+
+#treatment_menu{
+    clear:both;
+    float:left;
+    width:300px;
+    margin: 10px 0 10px 0;
+    padding:0;
+    font-size:0.9em;
+}
+
+#treatment_menu ul{	
+    list-style:none;
+    width:300px;
+    margin:0 0 20px 0;
+    padding:0;
+    font-size:1.1em;
+}	
+
+#treatment_menu li{
+    margin-bottom:4px;
+}
+
+#treatment_menu li {
+    font-weight:bold;
+    /* height:20px; */
+    color:#505050;
+    display:block;
+    padding:4px 10px 2px 10px;
+    background-color: #eeeeee;
+    border: solid 1px #666666;
+    border-left:4px solid #cccccc;
+}	
+	
+#treatment_menu li:hover {
+    background:#dddddd;
+    color:#286ea0;
+    border: solid 1px #444444;
+    border-left:4px solid #286ea0;
+}
+
+#treatment_menu li a {
+    text-decoration:none;
+}
+
+#treatment_menu li a:hover {
+    text-decoration:none;
+/*     background:#dddddd; */
+/*     color:#286ea0; */
+}
+
+#treatment_menu li a.delete {
+    float:right;
+}
+
+#treatment_menu li.treatment_menu_item_active {
+    /* width: 80px; */
+/*     padding: 5px 5px 5px 5px; */
+    background-color:#ffff99;
+    color:#286ea0;
+    border-left:4px solid #ff0000;
+    /* 
+     * background-color: #ffffdd;
+     * border: solid 1px #000000;
+     */
+}
+
+#treatment_menu li.treatement_menu_item_active a:hover {
+    text-decoration:none;
+    background-color:#ffff99;
+}
+
+.overlay {
+    position: absolute;
+    left:0px;
+    top:0px;
+    z-index:50;
+    width: 570px;
+    /* height: 850px; */
+    background-color: transparent;
+    display:none;
+}
+
+.overlay_shadow {
+    position: absolute;
+    left:0px;
+    top:0px;
+    z-index:0;
+    width: 100%;
+    height:2600px;
+    background-color: #000000;
+    opacity:0.5;
+    filter:alpha(opacity=50);
+}
+
+.overlay_contents {
+    position:absolute;
+    z-index:75;
+    left:10px;
+    top:20px;
+    width: 520px;
+    /* height: 800px; */
+    background-color: #ffffff;
+    opacity:1.0;
+    filter:alpha(opacity=100);
+    text-align: left;
+    padding: 20px 5px 20px 5px;
+    border: solid #444444 8px;
+}
+
+#display_treatment_button {
+}
