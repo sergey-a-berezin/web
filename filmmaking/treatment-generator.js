@@ -24,35 +24,11 @@ var sample_matrix =
 var sample_titanic = 
   {"title":{"v":"Love Story: Titanic"},"hero_name":{"v":"Rose"},"hero_desc":{"v":"beautiful and kind girl"},"hero_want":{"v":"to stop her marriage with Caledon"},"vil_desc":{"v":"rich and arrogant"},"vil_name":{"v":"Caledon"},"vil_goal":{"v":"marry Rose"},"vil_power":{"v":"got the approval from the families and arranged everything for the wedding"},"catalyst":{"v":"Jack, a simple young man, wins a ticket for a trip to America on Titanic"},"debate":{"v":"didn't see any way out, and was considering to commit a suicide by jumping off the deck"},"ally":{"v":"Jack"},"break2":{"v":"on her trip to America onboard of Titanic, Rose meets Jack, who convinces her not to jump"},"fun":{"v":"falls in love with Jack, and they spend a good deal of time going around the great ship doing everything what lovers do. Jack paints a nude portrait of Rose, then they make love on the back seat of a car"},"b_story":{"v":"as the lookouts are busy watching Rose and Jack, Titanic hits an iceberg and punctures the hull."},"midpoint":{"v":"The passengers learn about the clash with the iceberg, and together with Rose and Jack are worried about their safety. While the ship is severely damaged, the captain assures it is unsinkable, and there is no reason to worry"},"bad_guys":{"v":"When Rose and Jack learn about the danger, they try to warn Caledon, but he instead accuses Jack of stealing the Blue Diamond"},"cave":{"v":"Rose is forced to stay with Caledon, but is worried about Jack. She knows Jack can be in danger, but it seems, there is nothing she can do to save him"},"battle":{"v":"Rose escapes from the boat and runs down to find Jack. With difficulty, she helps to rescue Jack from a flooded cell and get him on the upper deck. But the boats have already left, and after the dramatic sinking of the ship, Rose and Jack's only hope is to find something to float on the surface and wait for the rescue boat"},"char_test":{"v":"Jack finds a piece of debris and puts Rose on this makeshift raft. He himself dies in the cold water. When Rose is rescued, she calls herself Rose Dawson (Jack's last name). She catches a glimpse of Caledon on the rescue ship, but evades him, and he does not notice her. Many years later, Rose (now a very old lady) finishes the story and drops the long lost diamond into the sea. Later she dies peacefully in her sleep"},"hero_need":{"v":"to be with Jack, to be who she is, and live life on her own terms"},"b_end":{"v":"The ship has only a few minutes left before it goes down. People panic, Caledon is distracted"},"b_evolve":{"v":"the \"unsinkable\" ship slowly begins to sink"},"hero_routine":{"v":"She was about to marry Caledon against her will, and they were boarding a ship called Titanic for their trip to America."}};
 
-var sample_wolf = 
-  {"title": {"v":"Wolf and seven goats"},
-   "hero_name":{"v":"Seven goats"},
-   "hero_desc":{"v":"small and helpless"},
-   "hero_want":{"v":"to eat the grass"},
-   "vil_desc":{"v":"scary and hungry"},
-   "vil_name":{"v":"Wolf"},
-   "vil_goal":{"v":"eat the seven goats"},
-   "vil_power":{"v":"is big, strong and ruthless"},
-   "catalyst":{"v":"wolf was particularly hungry and howled in the dark of the night"},
-   "debate":{"v":"thought the wolf is far away, and went back to sleep"},
-   "ally":{"v":"Shepard "},
-   "break2":{"v":"Wolf appears right on the pasture with seven goats"},
-   "fun":{"v":"run away and hide in a cave"},
-   "b_story":{"v":"Shepard meets a beautiful lady and is walking with her in the forest, looking for a quiet cave to stop by and sit by the romantic fire"},
-   "b_evolve":{"v":"Shepard finds a very nice looking cave, sets up a fire, and he and his girlfriend are having a good time"},
-   "b_end":{"v":"Shepard happened to find exactly the same cave where the seven goats were hiding, and the Wolf couldn't enter because he was afraid of the fire"},
-   "midpoint":{"v":"The wolf sniffs the seven goats in the cave, and howls right next to the entrance"},
-   "bad_guys":{"v":"The cave is wide enough for the wolf to enter, and not big enough for the seven goats to hide away. The wolf would certainly find them and eat them"},
-   "cave":{"v":"Seven goats have crowded in a dark corner and sit quietly, barely breathing, with no hope left"},
-   "battle":{"v":"The Shepard sees the wolf entering the cave and throws burning coals at him. The wolf gets burned and runs away."},
-   "char_test":{"v":"Shepard is happy to see the seven goats. He makes some milk for his new girlfriend, and they all live long and happy."}};
-
 var samples = 
   [sample_generic,
    sample_matrix,
    sample_cinderella,
    sample_titanic,
-   // sample_wolf
    ];
 
 var questions =
@@ -199,8 +175,6 @@ function printCode(db) {
 function parseCode(str) {
   var res = db; // by default, return what's already in db
   if(typeof(JSON) == 'object') { return JSON.parse(str); }
-  // FIXME: write a better parser, or give up
-  //  else { return eval(unescape(str)); }
   return res;
 }
 
@@ -250,7 +224,6 @@ function updateMenu() {
       +"</li>\n";
   }
   menu += '<li><a class="treatment_menu_item" href="javascript:createStory()">Create New Story</a></li>';
-  //  menu += '<li><a class="treatment_menu_item" href="javascript:clearAll()">Erase This Story</a></li>';
   menu += "</ul>\n";
   document.getElementById('treatment_menu').innerHTML = menu;
 }

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/* Work-around the IE bug: document.getElemntsByName() doesn't work */
+/* Work-around the IE bug: document.getElementsByName() doesn't work */
 function myGetElementsByName(tag, name) {
   var tags = document.getElementsByTagName(tag);
   var res = new Array();
