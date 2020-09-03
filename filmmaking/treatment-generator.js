@@ -204,11 +204,9 @@ function createStory(story) {
 }
 
 function deleteStory(i) {
-  if(confirm('Are you sure you want to delete '+stories[i].title.v+'?')) {
-    for(var j=i; j<stories.length; ++j) {
-      if(j+1<stories.length) stories[j] = stories[j+1];
-      else stories.pop();
-    }
+  for(var j=i; j<stories.length; ++j) {
+    if(j+1<stories.length) stories[j] = stories[j+1];
+    else stories.pop();
   }
   if(currentStory >= stories.length) currentStory = stories.length-1;
   loadStory(currentStory);
@@ -218,12 +216,12 @@ function updateMenu() {
   var menu = '<ul>';
   for(var i=0; i<stories.length; ++i) {
     menuClass = (i==currentStory)? 'treatment_menu_item_active' : 'treatment_menu_item';
-    menu += '<li class="'+menuClass+'" onclick="loadStory('+i+')"><a href="javascript:loadStory('+i+')">'
+    menu += '<li class="'+menuClass+'" onclick="loadStory('+i+')"><a>'
       +htmlEncode(stories[i].title.v)+'</a>'
-      +((i<samples.length) ? '' : '<a class="delete" href="javascript:deleteStory('+i+')">X</a>')
+      +((i<samples.length) ? '' : '<a class="delete" onclick="deleteStory('+i+')">X</a>')
       +"</li>\n";
   }
-  menu += '<li><a class="treatment_menu_item" href="javascript:createStory()">Create New Story</a></li>';
+  menu += '<li onclick="createStory()"><a class="treatment_menu_item">Create New Story</a></li>';
   menu += "</ul>\n";
   document.getElementById('treatment_menu').innerHTML = menu;
 }
@@ -257,11 +255,7 @@ function initialize() {
 
 function clearAll() {
   if(currentStory < samples.length) {
-    alert('Cannot erase a sample story '+stories[currentStory].title.v);
-    return;
-  }
-  if(!confirm('Are you sure you want to erase '+stories[currentStory].title.v
-	      +'? This action cannot be undone.')) {
+    // Cannot erase a sample story
     return;
   }
   for(var i=0; i<questions.length; ++i) {
@@ -283,11 +277,8 @@ function updateFromCode(createNew) {
     }
   }
   if(createNew && changed && currentStory < samples.length) {
-    if(confirm('You are trying to modify a sample story. '
-	       +'Would you like to create a new story based on this change?')) {
-      createStory(db); // This call updates the screen
-      return;
-    }
+    createStory(db); // This call updates the screen
+    return;
   }
   updateAllAux(false /* no code update */, false /* dont create story */);
 }
@@ -316,11 +307,8 @@ function updateAllAux(updateCode, cloneStory) {
   var text = res.text;
   var changed = res.changed;
   if(cloneStory && changed && currentStory < samples.length) {
-    if(confirm('You are trying to modify a sample story. '
-	       +'Would you like to create a new story based on this change?')) {
-      createStory(db); // This call updates the screen
-      return;
-    }
+    createStory(db); // This call updates the screen
+    return;
   }
   var obj = document.getElementById('treatment');
   obj.innerHTML =
